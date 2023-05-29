@@ -1,4 +1,4 @@
-package teste;
+package EstruturaDeDados;
 
 public class Contato {
     private String nome;

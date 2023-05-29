@@ -1,5 +1,8 @@
 package teste;
 
+import EstruturaDeDados.Contato;
+import EstruturaDeDados.VetorObjetos;
+
 public class aula10 {
     public static void main(String[] args) {
         VetorObjetos vetor = new VetorObjetos(3);

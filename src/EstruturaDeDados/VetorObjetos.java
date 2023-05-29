@@ -1,17 +1,17 @@
-package teste;
+package EstruturaDeDados;
 import java.util.Arrays;
 
-public class Vetor {
+public class VetorObjetos {
 
-    private String[] elementos;
+    private Object[] elementos;
     private int tamanho;
 
-    public Vetor(int capacidade){
-        this.elementos = new String[capacidade];
+    public VetorObjetos(int capacidade){
+        this.elementos = new Object[capacidade];
     }
 
     // adiciona elementos no vetor (aula 3)
-    public boolean adiciona(String elemento){
+    public boolean adiciona(Object elemento){
         this.aumentacapacidade();
       if(this.tamanho <this.elementos.length){
           this.elementos[this.tamanho] = elemento;
@@ -34,12 +34,12 @@ public class Vetor {
     }
 
     // get todos elementos;
-    public String[] getElementos() {
+    public Object[] getElementos() {
         return elementos;
     }
 
     // método que retorna o elemento por posição(aula5)
-    public String busca(int posicao){
+    public Object busca(int posicao){
         if(!(posicao>= 0 && posicao < tamanho)){
             throw new IllegalArgumentException("Posição inválida");
         } else{
@@ -48,7 +48,7 @@ public class Vetor {
     }
 
     // busca sequencial por elemento (retorna se existe ou não) (aula6)
-    public int busca(String elemento) {
+    public int busca(Object elemento) {
         for (int i = 0; i < this.tamanho; i++) {
             if (this.elementos[i].equals(elemento)) {
                 return i;
@@ -60,7 +60,7 @@ public class Vetor {
     // overload de adiciona para adicionar um elemento em qualquer posição do vetor (aula7)
     // 0 1 2 3 4 5 6 = tamanho é 5
     // B C E F G + +
-    public void adiciona(int posicao, String elemento){
+    public void adiciona(int posicao, Object elemento){
         if(!(posicao>= 0 && posicao < tamanho)){
             throw new IllegalArgumentException("Posição inválida");
         }
@@ -79,7 +79,7 @@ public class Vetor {
     // aumenta capacidade do vetor (aula 8)
     private void aumentacapacidade(){
         if (this.tamanho == this.elementos.length){
-            String[] elementosNovos = new String[this.elementos.length * 2];
+            Object[] elementosNovos = new Object[this.elementos.length * 2];
             for (int i = 0; i<this.elementos.length; i++){
                 elementosNovos[i] = this.elementos[i];
             }

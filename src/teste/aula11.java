@@ -1,5 +1,8 @@
 package teste;
 
+import EstruturaDeDados.Contato;
+import EstruturaDeDados.Lista;
+
 public class aula11 {
 
     public static void main(String[] args) {

@@ -1,35 +1,30 @@
-package teste;
-
-import java.lang.reflect.Array;
+package EstruturaDeDados;
 import java.util.Arrays;
 
-public class Lista<T> {
+public class Vetor {
 
-
-    private T[] elementos;
+    private String[] elementos;
     private int tamanho;
 
-    public Lista(int capacidade){
-        this.elementos = (T[]) new Object[capacidade];
-        this.tamanho=0;
+    public Vetor(int capacidade){
+        this.elementos = new String[capacidade];
     }
-
 
     // adiciona elementos no vetor (aula 3)
-    public boolean adiciona(T elemento){
+    public boolean adiciona(String elemento){
         this.aumentacapacidade();
-        if(this.tamanho <this.elementos.length){
-            this.elementos[this.tamanho] = elemento;
-            this.tamanho++;
-            return true;
-        }
-        return false;
-    }
+      if(this.tamanho <this.elementos.length){
+          this.elementos[this.tamanho] = elemento;
+          this.tamanho++;
+          return true;
+      }
+      return false;
+}
 
     // retorna o tamanho do vetor(aula4)
     public int tamanho(){
         return this.tamanho;
-    }
+}
 
 
     // toString printa(aula4)
@@ -39,12 +34,12 @@ public class Lista<T> {
     }
 
     // get todos elementos;
-    public Object[] getElementos() {
+    public String[] getElementos() {
         return elementos;
     }
 
     // método que retorna o elemento por posição(aula5)
-    public Object busca(int posicao){
+    public String busca(int posicao){
         if(!(posicao>= 0 && posicao < tamanho)){
             throw new IllegalArgumentException("Posição inválida");
         } else{
@@ -53,19 +48,19 @@ public class Lista<T> {
     }
 
     // busca sequencial por elemento (retorna se existe ou não) (aula6)
-    public int busca(T elemento) {
+    public int busca(String elemento) {
         for (int i = 0; i < this.tamanho; i++) {
             if (this.elementos[i].equals(elemento)) {
                 return i;
             }
         }
-        return -1;
+    return -1;
     }
 
     // overload de adiciona para adicionar um elemento em qualquer posição do vetor (aula7)
     // 0 1 2 3 4 5 6 = tamanho é 5
     // B C E F G + +
-    public void adiciona(int posicao, T elemento){
+    public void adiciona(int posicao, String elemento){
         if(!(posicao>= 0 && posicao < tamanho)){
             throw new IllegalArgumentException("Posição inválida");
         }
@@ -84,7 +79,7 @@ public class Lista<T> {
     // aumenta capacidade do vetor (aula 8)
     private void aumentacapacidade(){
         if (this.tamanho == this.elementos.length){
-            T[] elementosNovos = (T[]) new Object[this.elementos.length * 2];
+            String[] elementosNovos = new String[this.elementos.length * 2];
             for (int i = 0; i<this.elementos.length; i++){
                 elementosNovos[i] = this.elementos[i];
             }
@@ -108,4 +103,6 @@ public class Lista<T> {
         this.tamanho--; // como irá remover um elemento, o tamanho diminui
 
     }
+
+
 }

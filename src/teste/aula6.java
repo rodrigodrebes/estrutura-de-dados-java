@@ -1,5 +1,7 @@
 package teste;
 
+import EstruturaDeDados.Vetor;
+
 public class aula6 {
 
     public static void main(String[] args) {

@@ -1,30 +1,35 @@
-package teste;
+package EstruturaDeDados;
+
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class VetorObjetos {
+public class Lista<T> {
 
-    private Object[] elementos;
+
+    private T[] elementos;
     private int tamanho;
 
-    public VetorObjetos(int capacidade){
-        this.elementos = new Object[capacidade];
+    public Lista(int capacidade){
+        this.elementos = (T[]) new Object[capacidade];
+        this.tamanho=0;
     }
 
+
     // adiciona elementos no vetor (aula 3)
-    public boolean adiciona(Object elemento){
+    public boolean adiciona(T elemento){
         this.aumentacapacidade();
-      if(this.tamanho <this.elementos.length){
-          this.elementos[this.tamanho] = elemento;
-          this.tamanho++;
-          return true;
-      }
-      return false;
-}
+        if(this.tamanho <this.elementos.length){
+            this.elementos[this.tamanho] = elemento;
+            this.tamanho++;
+            return true;
+        }
+        return false;
+    }
 
     // retorna o tamanho do vetor(aula4)
     public int tamanho(){
         return this.tamanho;
-}
+    }
 
 
     // toString printa(aula4)
@@ -48,19 +53,19 @@ public class VetorObjetos {
     }
 
     // busca sequencial por elemento (retorna se existe ou não) (aula6)
-    public int busca(Object elemento) {
+    public int busca(T elemento) {
         for (int i = 0; i < this.tamanho; i++) {
             if (this.elementos[i].equals(elemento)) {
                 return i;
             }
         }
-    return -1;
+        return -1;
     }
 
     // overload de adiciona para adicionar um elemento em qualquer posição do vetor (aula7)
     // 0 1 2 3 4 5 6 = tamanho é 5
     // B C E F G + +
-    public void adiciona(int posicao, Object elemento){
+    public void adiciona(int posicao, T elemento){
         if(!(posicao>= 0 && posicao < tamanho)){
             throw new IllegalArgumentException("Posição inválida");
         }
@@ -79,7 +84,7 @@ public class VetorObjetos {
     // aumenta capacidade do vetor (aula 8)
     private void aumentacapacidade(){
         if (this.tamanho == this.elementos.length){
-            Object[] elementosNovos = new Object[this.elementos.length * 2];
+            T[] elementosNovos = (T[]) new Object[this.elementos.length * 2];
             for (int i = 0; i<this.elementos.length; i++){
                 elementosNovos[i] = this.elementos[i];
             }
@@ -103,6 +108,4 @@ public class VetorObjetos {
         this.tamanho--; // como irá remover um elemento, o tamanho diminui
 
     }
-
-
 }
