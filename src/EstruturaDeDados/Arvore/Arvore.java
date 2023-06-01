@@ -18,14 +18,14 @@ public class Arvore<T extends Comparable> {
                 if (novoElemento.getValor().compareTo(atual.getValor()) == -1) {
                     if (atual.getEsquerda() != null) {
                         atual = atual.getEsquerda();
-                    }else {
+                    } else {
                         atual.setEsquerda(novoElemento);
                         break;
                     }
-                }else{
-                    if(atual.getDireita()!=null){
-                        atual=atual.getDireita();
-                    }else{
+                } else {
+                    if (atual.getDireita() != null) {
+                        atual = atual.getDireita();
+                    } else {
                         atual.setDireita(novoElemento);
                         break;
                     }
@@ -38,11 +38,27 @@ public class Arvore<T extends Comparable> {
         return raiz;
     }
 
-    public void emOrdem(Elemento<T> atual){
-        if(atual!=null){
+    public void emOrdem(Elemento<T> atual) {
+        if (atual != null) {
             emOrdem(atual.getEsquerda());
             System.out.println(atual.getValor());
             emOrdem(atual.getDireita());
+        }
+    }
+
+    public void preOrdem(Elemento<T> atual) {
+        if (atual != null) {
+            System.out.println(atual.getValor());
+            preOrdem(atual.getEsquerda());
+            preOrdem(atual.getDireita());
+        }
+    }
+
+    public void posOrdem(Elemento<T> atual){
+        if (atual != null) {
+            posOrdem(atual.getEsquerda());
+            posOrdem(atual.getDireita());
+            System.out.println(atual.getValor());
         }
     }
 }
