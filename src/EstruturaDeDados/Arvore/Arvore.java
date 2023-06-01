@@ -33,4 +33,16 @@ public class Arvore<T extends Comparable> {
             }
         }
     }
+
+    public Elemento<T> getRaiz() {
+        return raiz;
+    }
+
+    public void emOrdem(Elemento<T> atual){
+        if(atual!=null){
+            emOrdem(atual.getEsquerda());
+            System.out.println(atual.getValor());
+            emOrdem(atual.getDireita());
+        }
+    }
 }

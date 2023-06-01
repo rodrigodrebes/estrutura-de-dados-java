@@ -24,7 +24,7 @@ public class Elemento<T>{
     }
 
     public void setEsquerda(Elemento<T> novoElemento){
-       this.esquerda=esquerda;
+       this.esquerda=novoElemento;
     }
 
     public Elemento<T> getDireita(){
@@ -32,7 +32,7 @@ public class Elemento<T>{
     }
 
     public void setDireita(Elemento<T> novoElemento){
-        this.direita=direita;
+        this.direita=novoElemento;
     }
 
 }
